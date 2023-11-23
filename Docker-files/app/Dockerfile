@@ -9,4 +9,4 @@ LABEL "Author"="Aslaan"
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=BUILD_IMAGE vprofile-project/target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
-CMD ["calalina.sh","run"]
+CMD ["catalina.sh","run"]

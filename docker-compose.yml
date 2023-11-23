@@ -1,9 +1,8 @@
-version:'3.8'
+version: '3.8'
 services:
   vprodb:
     build:
       context: ./Docker-files/db
-
     image: mohammedaslaan/vprofiledb
     container_name: vprodb
     ports:
@@ -11,7 +10,8 @@ services:
     volumes:
       - vprodbdata:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD=vprodbpass
+      MYSQL_ROOT_PASSWORD: vprodbpass
+
   vprocache01:
     image: memcached
     ports:
@@ -28,7 +28,6 @@ services:
   vproapp:
     build:
       context: ./Docker-files/app
-
     image: mohammedaslaan/vprofileapp
     container_name: vproapp
     ports:
@@ -39,12 +38,11 @@ services:
   vproweb:
     build:
       context: ./Docker-files/web
-
     image: mohammedaslaan/vprofileweb
     container_name: vproweb
     ports:
       - "80:80"
 
 volumes:
-  - vprodbdata: {}
-  - vproappdata: {}
+  vprodbdata: {}
+  vproappdata: {}
